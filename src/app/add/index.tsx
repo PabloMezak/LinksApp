@@ -44,16 +44,17 @@ export default function Add() {
         url,
         category
       })
-
+    Alert.alert("Sucesso", "Item adicionado a lista", [
+      {
+        text: "ok",
+        onPress: () => router.back()
+      }
+    ])
+      router.back()
       //listar Item pelo LocalStorage
-      const data = await linkStorage.get()
-      console.log(data)
-
-
-
       console.log({ category, name, url })
     } catch (error) {
-      Alert.alert("Erro","não foi possivel adicionar o link")
+      Alert.alert("Erro", "não foi possivel adicionar o link")
       console.log(error)
     }
 
@@ -76,8 +77,8 @@ export default function Add() {
 
 
       <View style={styles.form}>
-        <Input placeholder="Nome"  autoCapitalize="none" onChangeText={setName} />
-        <Input placeholder="URL"  autoCapitalize="none" onChangeText={setUrl} />
+        <Input placeholder="Nome" autoCapitalize="none" onChangeText={setName} />
+        <Input placeholder="URL" autoCapitalize="none" onChangeText={setUrl} />
         <Button title="Adcionar" onPress={handleAdd} />
 
       </View>

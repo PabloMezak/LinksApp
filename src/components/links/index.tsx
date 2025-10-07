@@ -12,17 +12,21 @@ type Props = {
 
 export function Link({ name, url, onDetalhes }: Props) {
     return (
+
         <View style={styles.container}>
             <View style={styles.detals}>
-                <Text style={styles.name} numberOfLines={1}>
-                    {name}
-                </Text>
+                <TouchableOpacity onPress={onDetalhes}>
+                    <Text style={styles.name} numberOfLines={1}>
+                        {name}
+                    </Text>
+                </TouchableOpacity>
+
                 <Text style={styles.url} numberOfLines={1}>
                     {url}
                 </Text>
             </View>
             <TouchableOpacity onPress={onDetalhes}>
-                <MaterialIcons name='more-horiz' size={20} color={colorsStyle.gray[400]}/>
+                <MaterialIcons name='more-horiz' size={20} color={colorsStyle.gray[400]} />
             </TouchableOpacity>
         </View>
     )
